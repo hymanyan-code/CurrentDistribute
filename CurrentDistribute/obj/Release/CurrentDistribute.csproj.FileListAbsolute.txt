@@ -1,0 +1,10 @@
+E:\Embedded\CurrentDistribute\CurrentDistribute\bin\Release\WindowsFormsApp1.exe.config
+E:\Embedded\CurrentDistribute\CurrentDistribute\bin\Release\WindowsFormsApp1.exe
+E:\Embedded\CurrentDistribute\CurrentDistribute\bin\Release\WindowsFormsApp1.pdb
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\CurrentDistribute.csproj.AssemblyReference.cache
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\WindowsFormsApp1.Form1.resources
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\WindowsFormsApp1.Properties.Resources.resources
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\CurrentDistribute.csproj.GenerateResource.cache
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\CurrentDistribute.csproj.CoreCompileInputs.cache
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\WindowsFormsApp1.exe
+E:\Embedded\CurrentDistribute\CurrentDistribute\obj\Release\WindowsFormsApp1.pdb
