@@ -160,6 +160,30 @@ namespace WindowsFormsApp1
             int iBranchOutCurrTemp = 0;
             int OneCycleCurrent=0;
             int OneCycleNum=0;
+            ushort[] wCRCTalbeAbs= new ushort[16];
+            ushort polynomial = 0x1021; // 多项式 x^16 + x^12 + x^5 + 1
+            ushort k;
+            for (k = 0; k < 16; k++)
+            {
+                ushort crc = k; // 初始化为低4位的值
+                for (int j = 0; j < 4; j++)
+                { // 每次处理1位，共处理4位
+                    if ((ushort)(crc & 1)>0)
+                    {
+                        crc = (ushort)((crc >> 1) ^ polynomial); // 如果最低位为1，异或多项式
+                    }
+                    else
+                    {
+                        crc = (ushort)(crc >> 1); // 否则只右移
+                    }
+                }
+                wCRCTalbeAbs[k] = crc; // 将结果存入表中
+            }
+
+
+
+
+
             while ((SurplusLimit > 0) && SurplusStakeNum > 0) 
             { 
                 for (int i = 0; i < iBranchNum; i++)
@@ -169,7 +193,7 @@ namespace WindowsFormsApp1
                         continue;
                     }
                     iBranchOutCurrTemp = SurplusLimit * iBranchStakeNum[i] / SurplusStakeNum;
-                    if(iBranchOutCurrTemp == 0)
+                    if(iBranchOutCurrTemp == 0 && iBranchStakeNum[i]!=0)
                     {
                         iBranchOutCurrTemp = 1;
                     }
@@ -183,10 +207,10 @@ namespace WindowsFormsApp1
                     }
                     else if(iBranchOutCurr[i]<6)
                     {
-                        iBranchLimitArrive[i] = true;
-                        iBranchOutCurr[i] = 0;
-                        iBranchOutCurrTemp = 0;
-                        OneCycleNum += iBranchStakeNum[i];
+                       // iBranchLimitArrive[i] = true;
+                      //  iBranchOutCurr[i] = 0;
+                       // iBranchOutCurrTemp = 0;
+                       // OneCycleNum += iBranchStakeNum[i];
                     }
                     OneCycleCurrent += iBranchOutCurrTemp;
                     if(SurplusLimit <= OneCycleCurrent || SurplusStakeNum<= OneCycleNum)
@@ -211,7 +235,7 @@ namespace WindowsFormsApp1
 
             for (int i = 0; i < iBranchNum; i++)
             {
-                iBranchCurrTotal += iBranchOutCurr[i];
+                iBranchCurrTotal += iBranchOutCurrPlus[i];
             }
             textBox18.Text = iBranchCurrTotal.ToString(); 
             textBox20.Text = StakeNumTotal.ToString();
